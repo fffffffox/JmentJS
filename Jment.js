@@ -1,3 +1,5 @@
+/* jment version:1.1.0 */
+
 var Jment = {
     doc: {
         initDoc: (charset = "UTF-8", keywords = "JmentWebPage", author = "Jment", description = "JmentWebPage", title = "JmentWebPage") => {
