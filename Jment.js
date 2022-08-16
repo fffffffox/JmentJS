@@ -461,66 +461,102 @@ var Jment = {
         },
 
         forms : {
-            from: (action, method = "post/get", value) => {
+            from: (action, method = "post/get", value, addValue) => {
                 if (!org.jment.data.isReady) {
                     throw new Error("Not initialized or in progress");
                 }
                 org.jment.data.isReady = false;
-                org.jment.data.outDocumentHead += org.jment.privateFunc.label(`form action=\'${action}\' method=\'${method}\'`, value);
+                org.jment.data.outDocumentHead += org.jment.privateFunc.label(`form action=\'${action}\' method=\'${method}\'${addValue}`, value);
                 org.jment.data.isReady = true;
             },
             
-            text: (name, size, maxlength) => {
+            text: (name, size, maxlength, addValue) => {
                 if (!org.jment.data.isReady) {
                     throw new Error("Not initialized or in progress");
                 }
                 org.jment.data.isReady = false;
-                org.jment.data.outDocumentHead += org.jment.privateFunc.labelHead(`input type=\'text\' name=\'${name}\' size=\'${size}\' maxlength=\'${maxlength}\'`);
+                org.jment.data.outDocumentHead += org.jment.privateFunc.labelHead(`input type=\'text\' name=\'${name}\' size=\'${size}\' maxlength=\'${maxlength}\'${addValue}`);
                 org.jment.data.isReady = true;
             },
 
-            password: (name, size, maxlength) => {
+            password: (name, size, maxlength, addValue) => {
                 if (!org.jment.data.isReady) {
                     throw new Error("Not initialized or in progress");
                 }
                 org.jment.data.isReady = false;
-                org.jment.data.outDocumentHead += org.jment.privateFunc.labelHead(`input type=\'password\' name=\'${name}\' size=\'${size}\' maxlength=\'${maxlength}\'`);
+                org.jment.data.outDocumentHead += org.jment.privateFunc.labelHead(`input type=\'password\' name=\'${name}\' size=\'${size}\' maxlength=\'${maxlength}\'${addValue}`);
                 org.jment.data.isReady = true;
             },
 
-            checkbox: (checked) => {
+            checkbox: (checked, addValue) => {
                 if (!org.jment.data.isReady) {
                     throw new Error("Not initialized or in progress");
                 }
                 org.jment.data.isReady = false;
-                org.jment.data.outDocumentHead += org.jment.privateFunc.labelHead(`input type=\'checkbox\' checked=\'${checked}\'`);
+                org.jment.data.outDocumentHead += org.jment.privateFunc.labelHead(`input type=\'checkbox\' checked=\'${checked}\'${addValue}`);
                 org.jment.data.isReady = true;
             },
 
-            radio: (checked) => {
+            radio: (checked, addValue) => {
                 if (!org.jment.data.isReady) {
                     throw new Error("Not initialized or in progress");
                 }
                 org.jment.data.isReady = false;
-                org.jment.data.outDocumentHead += org.jment.privateFunc.labelHead(`input type=\'radio\' checked=\'${checked}\'`);
+                org.jment.data.outDocumentHead += org.jment.privateFunc.labelHead(`input type=\'radio\' checked=\'${checked}\'${addValue}`);
                 org.jment.data.isReady = true;
             },
 
-            submit: (checked) => {
+            submit: (checked, addValue) => {
                 if (!org.jment.data.isReady) {
                     throw new Error("Not initialized or in progress");
                 }
                 org.jment.data.isReady = false;
-                org.jment.data.outDocumentHead += org.jment.privateFunc.labelHead(`input type=\'checkbox\' checked=\'${checked}\'`);
+                org.jment.data.outDocumentHead += org.jment.privateFunc.labelHead(`input type=\'checkbox\' checked=\'${checked}\'${addValue}`);
                 org.jment.data.isReady = true;
             },
 
-            reset: () => {
+            reset: (addValue) => {
                 if (!org.jment.data.isReady) {
                     throw new Error("Not initialized or in progress");
                 }
                 org.jment.data.isReady = false;
-                org.jment.data.outDocumentHead += org.jment.privateFunc.labelHead(`input type=\'reset\'`);
+                org.jment.data.outDocumentHead += org.jment.privateFunc.labelHead(`input type=\'reset\'${addValue}`);
+                org.jment.data.isReady = true;
+            },
+
+            hidden: (addValue) => {
+                if (!org.jment.data.isReady) {
+                    throw new Error("Not initialized or in progress");
+                }
+                org.jment.data.isReady = false;
+                org.jment.data.outDocumentHead += org.jment.privateFunc.labelHead(`input type=\'hidden\'${addValue}`);
+                org.jment.data.isReady = true;
+            },
+
+            select: (value, addValue) => {
+                if (!org.jment.data.isReady) {
+                    throw new Error("Not initialized or in progress");
+                }
+                org.jment.data.isReady = false;
+                org.jment.data.outDocumentHead += org.jment.privateFunc.label(`select${addValue}`, value);
+                org.jment.data.isReady = true;
+            },
+
+            option: (value, selected, addValue) => {
+                if (!org.jment.data.isReady) {
+                    throw new Error("Not initialized or in progress");
+                }
+                org.jment.data.isReady = false;
+                org.jment.data.outDocumentHead += org.jment.privateFunc.label(`option selected=\'${selected}\'${addValue}`, value);
+                org.jment.data.isReady = true;
+            },
+            
+            textarea: (name, rows, cols, addValue) => {
+                if (!org.jment.data.isReady) {
+                    throw new Error("Not initialized or in progress");
+                }
+                org.jment.data.isReady = false;
+                org.jment.data.outDocumentHead += org.jment.privateFunc.label(`textarea name=\'${name}\' rows=\'${rows}\' col=\'${cols}\'${addValue}`, value);
                 org.jment.data.isReady = true;
             },
         }
